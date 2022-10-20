@@ -44,7 +44,7 @@ class AuthController extends Controller
             return redirect()->intended(route('dashboard'));
         }
 
-        return redirect()->back()->with('gagal', 'Maaf, akun tidak ditemukan!');
+        return redirect()->back()->with('gagal', 'Maaf, NIP atau password salah!');
     }
 
     // tampilan register
