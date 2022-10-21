@@ -64,16 +64,16 @@
 
         <!-- Navigation -->
         <ul class="navbar-nav">
-          <li class="nav-item" style="border-left: 2px solid #D24D60">
-            <a class="nav-link" href="#">
+          <li class="nav-item" @if($page == 'dash') style="border-left: 2px solid #D24D60" @endif>
+            <a class="nav-link" href="{{ route('dashboard') }}">
               <i class="fa fa-rocket text-orange"></i> 
-              <strong class="text-dark" style="font-weight: 500">Dashboard</strong>
+              <span @if($page == 'dash') class="text-dark"  style="font-weight: 500" @endif>Dashboard</span>
             </a>
           </li>
         </ul>
 
         <hr class="my-2" style="border-color: #aaa">
-        <h6 class="navbar-heading text-muted" style="font-size: 11px">Customers & Product</h6>
+        <h6 class="navbar-heading text-muted" style="font-size: 11px">Customers & Products</h6>
         <ul class="navbar-nav mb-md-3">
         
           <li class="nav-item">
@@ -106,11 +106,10 @@
         <hr class="my-2" style="border-color: #aaa">
         <h6 class="navbar-heading text-muted" style="font-size: 11px">Settings</h6>
         <ul class="navbar-nav mb-md-3">
-         
-          <li class="nav-item">
-            <a class="nav-link" href="#">
+          <li class="nav-item" @if($page == 'ep') style="border-left: 2px solid #D24D60" @endif>
+            <a class="nav-link" href="{{ route('editProfil') }}">
               <i class="ni ni-single-02 text-success"></i> 
-              Edit Profil
+              <span @if($page == 'ep')  class="text-dark" style="font-weight: 500" @endif>Edit Profil</span>
             </a>
           </li>
 

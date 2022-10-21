@@ -19,9 +19,9 @@
             <div class=" dropdown-header noti-title">
               <h6 class="text-overflow m-0">Welcome!</h6>
             </div>
-            <a href="#" class="dropdown-item">
+            <a href="{{ route('editProfil') }}" class="dropdown-item">
               <i class="ni ni-single-02"></i>
-              <span>My profil</span>
+              <span>Edit Profil</span>
             </a>
 
             <div class="dropdown-divider"></div>

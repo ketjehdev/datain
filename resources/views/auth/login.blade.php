@@ -15,6 +15,9 @@
     <link rel="icon" href="{{ asset('img/logo4.png') }}">
     <link rel="stylesheet" href="{{ asset('css/font.css') }}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css">
+    <style>
+        input::placeholder { font-size: 14px; }
+    </style>
 </head>
 <body>  
     
@@ -47,7 +50,7 @@
                                 <button type="submit" class="mt-1 border-0 btn text-danger">Logout</button>                    
                             </form>
                         @else    
-                        <h4>
+                        <h5 class="mb-1">
                             Selamat
                             @if ($time >= 00 && $time <= 11)
                                 Pagi
@@ -59,10 +62,8 @@
                                 Malam
                             @endif
                         </h4>
-                        <h6>
-                                
-                        - Silakan Login -
-                        
+                        <h6 style="font-size: 14px">    
+                            Silakan Login
                         </h6>
 
                         @endauth
@@ -79,13 +80,13 @@
                                 @error('nip')<p class="mb-0 text-danger" style="font-size: 12px">{{ $message }}</p> @enderror
                             </div>
 
-                            <div class="mb-3">
+                            <div>
                                 <label for="password" style="font-size: 14px;">Password :</label>
                                 <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" id="password" placeholder="Masukkan Password">    
                                 @error('password')<p class="mb-0 text-danger" style="font-size: 12px">{{ $message }}</p> @enderror
                             </div>
                             
-                            <div class="mt-3">  
+                            <div class="mt-4">  
                                 <button class="btn btn-danger" style="width: 100%;">Masuk</button>
                             </div>
                         </form>
@@ -94,7 +95,7 @@
                         <hr>
                     
                         <div class="text-secondary text-center" style="font-size: 13px">
-                            <p class="mb-0">Copyright &copy; {{ $date }}, <strong>Datain</strong>.</p>
+                            <p class="mb-0">Copyright &copy; {{ $date }}. <strong>Datain</strong>.</p>
                         </div>
                     </div>
                 </div>
