@@ -3,7 +3,7 @@
 @section('content')
 <div class="main-content">
     @include('layout.nav')
-    <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 600px; background-image: url(../assets/img/theme/profile-cover.jpg); background-size: cover; background-position: center top;">
+    <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 600px; background-image: url({{ asset('img/theme/profile-cover.jpg') }}); background-size: cover; background-position: center top;">
       <span class="mask bg-gradient-default opacity-8"></span>
       <div class="container-fluid d-flex align-items-center">
         <div class="row">
@@ -40,11 +40,16 @@
               <div class="row text-center mt-6">
                 <div class="col">
                   <div class="card-profile-stats mt-md-4">
-                      <p class="bg-primary mb-1 px-3" style="display: inline-block; color: #fff; border-radius: 25px;">
+
+                      <strong>{{ auth()->user()->name }}</strong>
+
+                      <p class="bg-success mt-1 px-3" style="display: inline-block; color: #fff; border-radius: 25px; font-size: 13px">
                           {{ ucfirst(auth()->user()->role) }}
                       </p>
+
                       <br>
-                    <strong>{{ auth()->user()->username }}</strong>
+
+                      <button class="btn btn-primary">Ganti Foto</button>
                   </div>
                 </div>
               </div>
@@ -59,13 +64,14 @@
                   <h3 class="mb-0">My account</h3>
                 </div>
                 <div class="col-4 text-right">
-                  <a href="{{ route('gantiPassword') }}" class="btn btn-sm btn-primary">Ubah Password</a>
+                  <a href="{{ route('gantiPassword') }}" class="btn btn-sm btn-primary">Ganti Password</a>
                 </div>
               </div>
             </div>
 
             <div class="card-body">
               <form action="{{ route('updateProfil') }}" method="POST">
+                @method('PUT')
                 @csrf
                 <div class="pl-lg-4">
                   <div class="row">

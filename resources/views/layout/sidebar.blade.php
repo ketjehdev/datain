@@ -76,10 +76,10 @@
         <h6 class="navbar-heading text-muted" style="font-size: 11px">Customers & Products</h6>
         <ul class="navbar-nav mb-md-3">
         
-          <li class="nav-item">
-            <a class="nav-link" href="#">
+          <li class="nav-item" @if($page == 'cp') style="border-left: 2px solid #D24D60" @endif>
+            <a class="nav-link" href="{{ route('vapel') }}">
               <i class="fa fa-address-card text-primary"></i> 
-              Calon Pelanggan 
+              <span @if($page == 'cp')  class="text-dark" style="font-weight: 500" @endif>Validasi Pelanggan</span>
             </a>
           </li>
           
@@ -95,10 +95,10 @@
         <hr class="my-2" style="border-color: #aaa">
         <h6 class="navbar-heading text-muted" style="font-size: 11px">Management Users</h6>
         <ul class="navbar-nav mb-md-3">
-          <li class="nav-item">
-            <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html">
+          <li class="nav-item" @if($page == 'tk') style="border-left: 2px solid #D24D60" @endif>
+            <a class="nav-link" href="{{ route('teknisiKaryawan') }}">
               <i class="fa fa-users text-pink"></i> 
-              Teknisi Karyawan
+              <span @if($page == 'tk')  class="text-dark" style="font-weight: 500" @endif>Teknisi Karyawan</span>
             </a>
           </li>
         </ul>
@@ -113,12 +113,12 @@
             </a>
           </li>
 
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <i class="fa fa-key text-yellow"></i> Ganti Password
-            </a>
-          </li>
-
+            <li class="nav-item" @if($page == 'gp') style="border-left: 2px solid #D24D60" @endif>
+              <a class="nav-link" href="{{ route('gantiPassword') }}">
+                <i class="fa fa-key text-yellow"></i> 
+                <span @if($page == 'gp') class="text-dark"  style="font-weight: 500" @endif>Ganti Password</span>
+              </a>
+            </li>
         </ul>
 
       </div>

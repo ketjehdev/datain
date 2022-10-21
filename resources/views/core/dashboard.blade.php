@@ -11,7 +11,7 @@
     {{-- sidebar --}}
     @include('layout.nav')
 
-    <div class="header bg-danger pb-8 pt-5 pt-md-8">
+    <div class="header bg-gradient-success pb-8 pt-5 pt-md-8">
       <div class="container-fluid">
         <div class="header-body">
           <div class="row align-items-center">
@@ -46,8 +46,8 @@
                       </div>
                     
                       <div class="mt-3">
-                        <a href="#" class="btn text-white btn-info">Profilku</a>
-                        <a href="#" class="btn text-white btn-primary">Ganti Password</a>                        
+                        <a href="{{ route('editProfil') }}" class="btn text-white btn-info">Profilku</a>
+                        <a href="{{ route('gantiPassword') }}" class="btn text-white btn-primary">Ganti Password</a>                        
                       </div>
                     </div>
                   </div>
@@ -61,11 +61,11 @@
                   <div class="card-body">
                     <div class="row">
                       <div class="col">
-                        <h5 class="card-title text-uppercase text-muted mb-0">Users</h5>
+                        <h5 class="card-title text-uppercase text-muted mb-0">Calon Pelanggan</h5>
                         <span class="h2 font-weight-bold mb-0">{{ $total_user }}</span>
                       </div>
                       <div class="col-auto">
-                        <div class="icon icon-shape bg-success text-white rounded-circle shadow">
+                        <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
                           <i class="fas fa-users"></i>
                         </div>
                       </div>
@@ -79,13 +79,13 @@
                   <div class="card-body">
                     <div class="row">
                       <div class="col">
-                        <h5 class="card-title text-uppercase text-muted mb-0">Materi</h5>
+                        <h5 class="card-title text-uppercase text-muted mb-0">Pelanggan</h5>
                         <span class="h2 font-weight-bold mb-0">2</span>
                       </div>
   
                       <div class="col-auto">
-                        <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
-                          <i class="fa fa-book"></i>
+                        <div class="icon icon-shape bg-success text-white rounded-circle shadow">
+                          <i class="fa fa-users"></i>
                         </div>
                       </div>
                     </div>
@@ -107,7 +107,7 @@
             <div class="card-header border-0">
               <div class="row align-items-center">
                 <div class="col">
-                  <h3 class="mb-0">Daftar Users</h3>
+                  <h3 class="mb-0">List Teknisi</h3>
                 </div>
                 <div class="col text-right">
                   <a href="#" class="btn btn-sm btn-primary">Selengkapnya</a>
