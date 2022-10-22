@@ -17,8 +17,8 @@ class CoreController extends Controller
     {
         $data = [
             'title' => 'Dashboard',
-            'total_user' => User::count(),
-            'users' => User::all(),
+            'capel' => User::count(),
+            'teknisi' => User::where('role', '=', 'teknisi')->get(),
             'page' => 'dash'
         ];
         return view('core.dashboard', $data);

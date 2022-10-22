@@ -79,7 +79,7 @@
           <li class="nav-item" @if($page == 'cp') style="border-left: 2px solid #D24D60" @endif>
             <a class="nav-link" href="{{ route('vapel') }}">
               <i class="fa fa-address-card text-primary"></i> 
-              <span @if($page == 'cp')  class="text-dark" style="font-weight: 500" @endif>Validasi Pelanggan</span>
+              <span @if($page == 'cp')  class="text-dark" style="font-weight: 500" @endif>@if(auth()->user()->role == 'admin') Validasi Pelanggan @else Manage Pelanggan @endif</span>
             </a>
           </li>
           
@@ -92,16 +92,19 @@
 
         </ul>
 
-        <hr class="my-2" style="border-color: #aaa">
-        <h6 class="navbar-heading text-muted" style="font-size: 11px">Management Users</h6>
-        <ul class="navbar-nav mb-md-3">
-          <li class="nav-item" @if($page == 'tk') style="border-left: 2px solid #D24D60" @endif>
-            <a class="nav-link" href="{{ route('teknisiKaryawan') }}">
-              <i class="fa fa-users text-pink"></i> 
-              <span @if($page == 'tk')  class="text-dark" style="font-weight: 500" @endif>Teknisi Karyawan</span>
-            </a>
-          </li>
-        </ul>
+        @if (auth()->user()->role == 'admin')
+          
+          <hr class="my-2" style="border-color: #aaa">
+          <h6 class="navbar-heading text-muted" style="font-size: 11px">Management Users</h6>
+          <ul class="navbar-nav mb-md-3">
+            <li class="nav-item" @if($page == 'tk') style="border-left: 2px solid #D24D60" @endif>
+              <a class="nav-link" href="{{ route('teknisiKaryawan') }}">
+                <i class="fa fa-users text-pink"></i> 
+                <span @if($page == 'tk')  class="text-dark" style="font-weight: 500" @endif>Teknisi Karyawan</span>
+              </a>
+            </li>
+          </ul>
+        @endif
 
         <hr class="my-2" style="border-color: #aaa">
         <h6 class="navbar-heading text-muted" style="font-size: 11px">Settings</h6>

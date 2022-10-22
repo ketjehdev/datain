@@ -11,7 +11,7 @@
     {{-- sidebar --}}
     @include('layout.nav')
 
-    <div class="header bg-gradient-success pb-8 pt-5 pt-md-8">
+    <div class="header @if(auth()->user()->role == 'admin') bg-gradient-success @else bg-danger @endif  pb-8 pt-5 pt-md-8">
       <div class="container-fluid">
         <div class="header-body">
           <div class="row align-items-center">
@@ -41,7 +41,7 @@
                         <div class="media-body ml-2">
                           <span class="mb-0 text-sm font-weight-bold">{{ auth()->user()->name }}</span>
                           <br>
-                          <span class="mb-0 text-sm px-3 bg-primary text-white font-weight-bold" style="border-radius: 25px">{{ ucfirst(auth()->user()->role) }}</span>
+                          <span class="mb-0 text-sm px-3 @if(auth()->user()->role == 'admin') bg-success @else bg-danger @endif text-white font-weight-bold" style="border-radius: 25px">{{ ucfirst(auth()->user()->role) }}</span>
                         </div>
                       </div>
                     
@@ -62,14 +62,14 @@
                     <div class="row">
                       <div class="col">
                         <h5 class="card-title text-uppercase text-muted mb-0">Calon Pelanggan</h5>
-                        <span class="h2 font-weight-bold mb-0">{{ $total_user }}</span>
+                        <span class="h2 font-weight-bold mb-0">{{ $capel }}</span>
                       </div>
                       <div class="col-auto">
                         <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
                           <i class="fas fa-users"></i>
                         </div>
                       </div>
-                    </div>
+                    </div>  
                   </div>
                 </div>
               </div>
@@ -79,7 +79,7 @@
                   <div class="card-body">
                     <div class="row">
                       <div class="col">
-                        <h5 class="card-title text-uppercase text-muted mb-0">Pelanggan</h5>
+                        <h5 class="card-title text-uppercase text-muted mb-0">Pelanggan aktif</h5>
                         <span class="h2 font-weight-bold mb-0">2</span>
                       </div>
   
@@ -130,7 +130,7 @@
                     $no = 1;
                 @endphp
                 <tbody>
-                  @foreach ($users as $item)
+                  @foreach ($teknisi as $item)
                   <tr>
                     <td>{{ $no++ . '.' }}</td>
                     <td>{{ $item->nip }}</td>
