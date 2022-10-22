@@ -25,6 +25,8 @@
     <script src="{{ asset('js/plugins/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('js/plugins/chart.js/dist/Chart.min.js') }}"></script>
     <script src="{{ asset('js/argon-dashboard.min.js') }}"></script>
+    <script src="{{ asset('js/cleave.js') }}"></script>
+    <script src="{{ asset('js/rupiah.js') }}"></script>
 
     @include('layout.popup')
 </body>

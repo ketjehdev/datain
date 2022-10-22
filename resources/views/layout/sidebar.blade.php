@@ -73,22 +73,41 @@
         </ul>
 
         <hr class="my-2" style="border-color: #aaa">
-        <h6 class="navbar-heading text-muted" style="font-size: 11px">Customers & Products</h6>
+        <h6 class="navbar-heading text-muted" style="font-size: 11px">Customers @if(auth()->user()->role == 'admin') & Products @endif</h6>
         <ul class="navbar-nav mb-md-3">
         
           <li class="nav-item" @if($page == 'cp') style="border-left: 2px solid #D24D60" @endif>
-            <a class="nav-link" href="{{ route('vapel') }}">
+            <a class="nav-link" href="{{ route('capel') }}">
               <i class="fa fa-address-card text-primary"></i> 
-              <span @if($page == 'cp')  class="text-dark" style="font-weight: 500" @endif>@if(auth()->user()->role == 'admin') Validasi Pelanggan @else Manage Pelanggan @endif</span>
+              <span @if($page == 'cp')  class="text-dark" style="font-weight: 500" @endif>@if(auth()->user()->role == 'admin') Validasi Pelanggan @else Calon Pelanggan @endif</span>
+            </a>
+          </li>
+
+          @if (auth()->user()->role == 'teknisi')
+          
+          <li class="nav-item" @if($page == 'ip') style="border-left: 2px solid #D24D60" @endif>
+            <a class="nav-link" href="{{ route('inpel') }}">
+              <i class="fa fa-user-plus text-dark"></i> 
+              <span @if($page == 'ip')  class="text-dark" style="font-weight: 500" @endif>
+                Input Pelanggan
+              </span>
             </a>
           </li>
           
-          <li class="nav-item">
-            <a class="nav-link" href="#">
+          @endif
+
+          @if (auth()->user()->role == 'admin')
+              
+          <li class="nav-item" @if($page == 'pi') style="border-left: 2px solid #D24D60" @endif>
+            <a class="nav-link" href="{{ route('pain') }}">
               <i class="fa fa-home text-danger"></i> 
-              Paket Indihome 
+              <span @if($page == 'pi')  class="text-dark" style="font-weight: 500" @endif>
+                Paket Indihome
+              </span>
             </a>
           </li>
+
+          @endif
 
         </ul>
 

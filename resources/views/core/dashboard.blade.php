@@ -11,7 +11,7 @@
     {{-- sidebar --}}
     @include('layout.nav')
 
-    <div class="header @if(auth()->user()->role == 'admin') bg-gradient-success @else bg-danger @endif  pb-8 pt-5 pt-md-8">
+    <div class="header @if(auth()->user()->role == 'admin') bg-gradient-success @else bg-gradient-danger @endif  pb-8 pt-5 pt-md-8">
       <div class="container-fluid">
         <div class="header-body">
           <div class="row align-items-center">
@@ -110,19 +110,19 @@
                   <h3 class="mb-0">List Teknisi</h3>
                 </div>
                 <div class="col text-right">
-                  <a href="#" class="btn btn-sm btn-primary">Selengkapnya</a>
+                  <a href="{{ route('teknisiKaryawan') }}" class="btn btn-sm btn-primary">Selengkapnya</a>
                 </div>
               </div>
             </div>
             <div class="table-responsive">
-              <!-- Projects table -->
+              
               <table class="table align-items-center table-flush">
                 <thead class="thead-light">
-                  <tr>
+                  <tr class="text-center" style="white-space: nowrap;">
                     <th scope="col">No.</th>
-                    <th scope="col">NIP</th>
-                    <th scope="col">Nama</th>
-                    <th scope="col">Role</th>
+                    <th scope="col">Teknisi</th>
+                    <th scope="col">Kontak</th>
+                    <th scope="col">Alamat</th>
                   </tr>
                 </thead>
 
@@ -131,23 +131,36 @@
                 @endphp
                 <tbody>
                   @foreach ($teknisi as $item)
-                  <tr>
-                    <td>{{ $no++ . '.' }}</td>
-                    <td>{{ $item->nip }}</td>
-                    <td>{{ $item->name }}</td>
+                    <tr class="text-center" style="white-space: nowrap;">
+                      <td>{{ $no++ . '.' }}</td>
+                      <td>
+                        <div class="d-flex align-items-center">
+                          
+                        <a href="{{ asset('/img/pp/'.$item->gambar) }}" target="_blank">
+                          <img src="{{ asset('img/pp/'.$item->gambar) }}" width="60" height="60" style="border-radius: 100%" alt="">
+                        </a>
+                        
+                        <div class="d-flex ms-3 flex-column">
+                          <span style="font-weight: bold">{{ $item->name }}</span>
+                          <span class="text-left text-primary">{{ Str::ucfirst($item->nip) }}</span>                      
+                        </div>
 
-                    <td>    
-                        @if ($item->role == 'admin')
-                          <span class="px-3 bg-success text-white" style="border-radius: 25px">{{ ucfirst($item->role) }}</span>
-                        @else
-                          <span class="px-3 bg-primary text-white" style="border-radius: 25px">{{ ucfirst($item->role) }}</span>
-                        @endif
-                    </td>
+                       </div>
+                      </td>
 
-                  </tr>
+                      <td>
+                        {{ $item->cp }}
+                      </td>
+
+                      <td>
+                        {{ $item->alamat }}
+                      </td>
+
+                    </tr>
                   @endforeach
                 </tbody>
               </table>
+
             </div>
           </div>
         </div>
