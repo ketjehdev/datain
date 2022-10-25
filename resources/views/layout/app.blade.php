@@ -27,7 +27,9 @@
     <script src="{{ asset('js/argon-dashboard.min.js') }}"></script>
     <script src="{{ asset('js/cleave.js') }}"></script>
     <script src="{{ asset('js/rupiah.js') }}"></script>
+    <script src="{{ asset('js/rupiah_updt.js') }}"></script>
 
     @include('layout.popup')
+
 </body>
 </html>

@@ -35,27 +35,12 @@ class AuthController extends Controller
             ],
         );
 
-        $remember_token = $request->input('remember');
-
-        if (Auth::attempt($credentials, $remember_token)) {
-
+        if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-
             return redirect()->intended(route('dashboard'));
         }
 
         return redirect()->back()->with('gagal', 'Maaf, NIP atau password salah!');
-    }
-
-    // tampilan register
-    public function register()
-    {
-        $data = [
-            'title' => 'Daftarkan Diri Bersama Datain',
-            'page' => 'register',
-        ];
-
-        return view('auth.register', $data);
     }
 
     // logout handle

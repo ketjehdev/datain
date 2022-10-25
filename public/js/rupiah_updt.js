@@ -1,11 +1,11 @@
-new Cleave("#harga_bulanan", {
+new Cleave("#harga_bulanan_updt", {
     prefix: "Rp. ",
     numeral: true,
     numeralDecimalMark: ",",
     delimiter: ".",
 });
 
-new Cleave("#total_deposit", {
+new Cleave("#total_deposit_updt", {
     prefix: "Rp. ",
     numeral: true,
     numeralDecimalMark: ",",

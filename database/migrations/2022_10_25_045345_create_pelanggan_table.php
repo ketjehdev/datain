@@ -13,15 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('pelanggan', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('nip', 150);
-            $table->string('password');
-            $table->enum('role', ['admin', 'teknisi']);
-            $table->string('gambar');
-            $table->string('cp');
-            $table->string('alamat');
+            $table->string('nama');
             $table->timestamps();
         });
     }
@@ -33,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('pelanggan');
     }
 };

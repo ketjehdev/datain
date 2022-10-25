@@ -33,7 +33,8 @@
                   <tr>
                     <th scope="col">No.</th>
                     <th scope="col">Nama Paket</th>
-                    <th scope="col">Harga Bulanan</th>
+                    <th scope="col">Harga Deposit</th>
+                    <th scope="col">Harga Perbulan</th>
                     <th scope="col">Handle</th>
                   </tr>
                 </thead>
@@ -48,6 +49,7 @@
                     <tr>
                         <td>{{ $no++ . '.' }}</td>
                         <td>{{ $item->nama_paket }}</td>
+                        <td>Rp. {{ number_format($item->total_deposit, 0, ',', '.') }}</td>
                         <td>Rp. {{ number_format($item->harga_bulanan, 0, ',', '.') }}</td>
                         <td>
                           <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="{{ '#delete'.$item->id }}">
@@ -100,6 +102,11 @@
                 <input type="text" name="nama_paket" id="nama_paket" class="form-control" placeholder="Nama Paket" style="color: #000">    
             </div>
 
+            <div class="mt-3">
+                <label for="total_deposit">Harga Deposit:</label>
+                <input type="text" name="total_deposit" id="total_deposit" class="form-control" style="color: #000">    
+            </div>
+        
             <div class="mt-3">
                 <label for="harga_bulanan">Harga Bulanan:</label>
                 <input type="text" name="harga_bulanan" id="harga_bulanan" class="form-control" style="color: #000">    
@@ -160,6 +167,11 @@
                 <input type="text" name="nama_paket" id="nama_paket" class="form-control" value="{{ $item->nama_paket }}" style="color: #000" placeholder="Nama Paket">    
             </div>
 
+            <div class="mt-3">
+                <label for="total_deposit_updt">Harga deposit:</label>
+                <input type="text" name="total_deposit" id="total_deposit_updt" class="form-control" style="color: #000" placeholder="Harga Deposit" value="{{ number_format($item->total_deposit, 0, ',', '.') }}">    
+            </div>
+            
             <div class="mt-3">
                 <label for="harga_bulanan_updt">Harga Bulanan:</label>
                 <input type="text" name="harga_bulanan" id="harga_bulanan_updt" class="form-control" style="color: #000" placeholder="Harga Bulanan" value="{{ number_format($item->harga_bulanan, 0, ',', '.') }}">    

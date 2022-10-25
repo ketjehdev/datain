@@ -4,7 +4,6 @@
     $time = date('H');
     $date = date('Y', strtotime('now'))
 @endphp
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +20,8 @@
 </head>
 <body>  
     
-    <div class="container-fluid" style="background-image: radial-gradient(circle at 12% 55%,rgba(33,150,243,.15),hsla(0,0%,100%,0) 25%),radial-gradient(circle at 85% 33%,rgba(225,46,33,.175),hsla(0,0%,100%,0)   25%)">
+    <div class="container-fluid" style="background-image: radial-gradient(circle at 12% 55%,rgba(33,150,243,.15),hsla(0,0%,100%,0) 25%),
+    radial-gradient(circle at 85% 33%,rgba(225,46,33,.175),hsla(0,0%,100%,0)   25%)">
         <div class="row" style="height: 100vh;">
             <div class="col-xl-6 d-xl-flex d-none p-5">
                 @auth
@@ -32,7 +32,8 @@
             </div>
 
             <div class="col-12 col-xl-6 d-flex justify-content-center align-items-center">
-                <div class="col-12 col-xl-8 d-flex flex-column align-items-center p-4" style="border-top: 3.5px solid red; border-radius: 10px; background: #fff; box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">
+                <div class="col-12 col-xl-8 d-flex flex-column align-items-center p-4" style="border-top: 3.5px solid red; 
+                border-radius: 10px; background: #fff; box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">
                     <div class="col-xl-2 col-4 d-flex justify-content-center align-items-center mb-xl-3 mb-2">
                         <img src="{{ asset('img/logo1.png') }}" style="width: 130%" alt="logo1">
                     </div>
@@ -50,6 +51,7 @@
                                 <button type="submit" class="mt-1 border-0 btn text-danger">Logout</button>                    
                             </form>
                         @else    
+                        
                         <h5 class="mb-1">
                             Selamat
                             @if ($time >= 00 && $time <= 11)
@@ -76,13 +78,15 @@
                             @csrf
                             <div class="mb-2">
                                 <label for="nip" style="font-size: 14px;">NIP :</label>
-                                <input type="text" value="{{ old('nip') }}" class="form-control @error('nip') is-invalid @enderror" name="nip" id="nip" placeholder="Nomor Identitas Pegawai" autofocus>    
+                                <input type="text" value="{{ old('nip') }}" class="form-control @error('nip') is-invalid @enderror" 
+                                name="nip" id="nip" placeholder="Nomor Identitas Pegawai" autofocus>    
                                 @error('nip')<p class="mb-0 text-danger" style="font-size: 12px">{{ $message }}</p> @enderror
                             </div>
 
                             <div>
                                 <label for="password" style="font-size: 14px;">Password :</label>
-                                <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" id="password" placeholder="Masukkan Password">    
+                                <input type="password" class="form-control @error('password') is-invalid @enderror" 
+                                name="password" id="password" placeholder="Masukkan Password">    
                                 @error('password')<p class="mb-0 text-danger" style="font-size: 12px">{{ $message }}</p> @enderror
                             </div>
                             

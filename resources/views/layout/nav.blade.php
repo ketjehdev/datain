@@ -19,17 +19,6 @@
             <div class=" dropdown-header noti-title">
               <h6 class="text-overflow m-0">Welcome!</h6>
             </div>
-
-            <a href="{{ route('editProfil') }}" class="dropdown-item">
-              <i class="ni ni-single-02"></i>
-              <span>Edit Profil</span>
-            </a>
-
-            <a href="{{ route('gantiPassword') }}" class="dropdown-item">
-              <i class="fa fa-key"></i>
-              <span>Ganti Password</span>
-            </a>
-
             <div class="dropdown-divider"></div>
             <form action="{{ route('logout') }}" method="POST">
               @csrf

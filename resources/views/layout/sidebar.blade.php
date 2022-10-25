@@ -73,18 +73,19 @@
         </ul>
 
         <hr class="my-2" style="border-color: #aaa">
-        <h6 class="navbar-heading text-muted" style="font-size: 11px">Customers @if(auth()->user()->role == 'admin') & Products @endif</h6>
+        <h6 class="navbar-heading text-muted" style="font-size: 11px">Customers </h6>
         <ul class="navbar-nav mb-md-3">
         
           <li class="nav-item" @if($page == 'cp') style="border-left: 2px solid #D24D60" @endif>
             <a class="nav-link" href="{{ route('capel') }}">
               <i class="fa fa-address-card text-primary"></i> 
-              <span @if($page == 'cp')  class="text-dark" style="font-weight: 500" @endif>@if(auth()->user()->role == 'admin') Validasi Pelanggan @else Calon Pelanggan @endif</span>
+              <span @if($page == 'cp')  class="text-dark" style="font-weight: 500" @endif>
+                Calon Pelanggan
+              </span>
             </a>
           </li>
 
           @if (auth()->user()->role == 'teknisi')
-          
           <li class="nav-item" @if($page == 'ip') style="border-left: 2px solid #D24D60" @endif>
             <a class="nav-link" href="{{ route('inpel') }}">
               <i class="fa fa-user-plus text-dark"></i> 
@@ -93,11 +94,16 @@
               </span>
             </a>
           </li>
-          
           @endif
+        </ul>
 
-          @if (auth()->user()->role == 'admin')
-              
+        @if (auth()->user()->role == 'admin')
+          
+          <hr class="my-2" style="border-color: #aaa">
+          <h6 class="navbar-heading text-muted" style="font-size: 11px">Managements</h6>
+          <ul class="navbar-nav mb-md-3">
+            
+    
           <li class="nav-item" @if($page == 'pi') style="border-left: 2px solid #D24D60" @endif>
             <a class="nav-link" href="{{ route('pain') }}">
               <i class="fa fa-home text-danger"></i> 
@@ -107,42 +113,16 @@
             </a>
           </li>
 
-          @endif
-
-        </ul>
-
-        @if (auth()->user()->role == 'admin')
-          
-          <hr class="my-2" style="border-color: #aaa">
-          <h6 class="navbar-heading text-muted" style="font-size: 11px">Management Users</h6>
-          <ul class="navbar-nav mb-md-3">
             <li class="nav-item" @if($page == 'tk') style="border-left: 2px solid #D24D60" @endif>
               <a class="nav-link" href="{{ route('teknisiKaryawan') }}">
-                <i class="fa fa-users text-pink"></i> 
-                <span @if($page == 'tk')  class="text-dark" style="font-weight: 500" @endif>Teknisi Karyawan</span>
+                <i class="fa fa-users text-info"></i> 
+                <span @if($page == 'tk')  class="text-dark" style="font-weight: 500" @endif>Data Teknisi</span>
               </a>
             </li>
+
           </ul>
         @endif
 
-        <hr class="my-2" style="border-color: #aaa">
-        <h6 class="navbar-heading text-muted" style="font-size: 11px">Settings</h6>
-        <ul class="navbar-nav mb-md-3">
-          <li class="nav-item" @if($page == 'ep') style="border-left: 2px solid #D24D60" @endif>
-            <a class="nav-link" href="{{ route('editProfil') }}">
-              <i class="ni ni-single-02 text-success"></i> 
-              <span @if($page == 'ep')  class="text-dark" style="font-weight: 500" @endif>Edit Profil</span>
-            </a>
-          </li>
-
-            <li class="nav-item" @if($page == 'gp') style="border-left: 2px solid #D24D60" @endif>
-              <a class="nav-link" href="{{ route('gantiPassword') }}">
-                <i class="fa fa-key text-yellow"></i> 
-                <span @if($page == 'gp') class="text-dark"  style="font-weight: 500" @endif>Ganti Password</span>
-              </a>
-            </li>
-        </ul>
-
-      </div>
+      </div>  
     </div>
   </nav>

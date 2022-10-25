@@ -13,6 +13,7 @@ class UserSeeder extends Seeder
      * Run the database seeds.
      *
      * @return void
+     *
      */
     public function run()
     {
@@ -21,6 +22,9 @@ class UserSeeder extends Seeder
             'nip' => '206765',
             'password' => Hash::make('123neville456'),
             'role' => 'admin',
+            'gambar' => 'default.png',
+            'cp' => '082373983',
+            'alamat' => 'Jl. Pipa, Desa Lama',
         ]);
     }
 }

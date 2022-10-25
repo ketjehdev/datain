@@ -124,7 +124,6 @@
                 <input type="text" name="alamat" id="alamat" placeholder="Alamat Teknisi" class="form-control">    
             </div>
 
-        
             <div class="mt-4">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
                 <button type="submit" class="simpan btn btn-primary">Simpan</button>    
@@ -171,36 +170,38 @@
         </div>
 
         <div class="modal-body">
-          <form action="{{ url('/terpel/editUser/'.$item->id) }}" method="POST">
+          <form action="{{ url('/updateTeknisi/'.$item->id) }}" method="POST">
             @csrf
-            
-            <div class="mt-2">
-                <label for="nis">NIS:</label>
-                <input type="text" name="nis" id="nis" class="form-control" value="{{ $item->nis }}" placeholder="Masukan NIS">    
-            </div>
+          <div class="mt-2">
+              <label for="name">Nama Lengkap</label>
+              <input type="text" name="name" value="{{ $item->name }}" class="form-control" placeholder="Nama Lengkap Teknisi">    
+          </div>
 
-            <div class="mt-3">
-                <label for="username">Username:</label>
-                <input type="text" name="username" id="username" class="form-control" placeholder="Masukan Username" value="{{ $item->username }}">    
-            </div>
+          <div class="mt-3">
+              <label for="nip">NIP</label>
+              <input type="number" min="0" value="{{ $item->nip }}" name="nip" id="nip" class="form-control" placeholder="NIP Teknisi">    
+          </div>
 
-            <div class="mt-3">
-                <label for="role">Username:</label>
-                <select name="role" id="role" class="form-control">
-                    @if ($item->role == 'admin')
-                    <option value="admin">Admin</option>
-                    <option value="siswa">Siswa</option>
-                    @else
-                    <option value="siswa">Siswa</option>
-                    <option value="admin">Admin</option>                   
-                    @endif
-                </select>
-            </div>
-            
-            <div class="mt-4">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-                <button type="submit" class="btn btn-info">Update</button>    
-            </div>
+          <div class="mt-3">
+              <label for="gambar">Foto Teknisi</label>
+              <input type="file" accept=".jpg,.png,.jpeg" name="gambar" id="gambar" class="form-control">    
+          </div>
+
+          <div class="mt-3">
+              <label for="cp">Kontak Teknisi</label>
+              <input type="number" min="0" name="cp" value="{{ $item->cp }}" id="cp" placeholder="Kontak Teknisi" class="form-control">    
+          </div>
+
+          <div class="mt-3">
+              <label for="alamat">Alamat Teknisi</label>
+              <input type="text" name="alamat" id="alamat" value="{{ $item->alamat }}" placeholder="Alamat Teknisi" class="form-control">    
+          </div>
+
+          <div class="mt-4">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+              <button type="submit" class="simpan btn btn-primary">Simpan</button>    
+          </div>
+
         </form>
         </div>
       </div>
